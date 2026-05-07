@@ -8,9 +8,10 @@
   },
   "Hero": {
     "label": "Matheus Fernandes Personal Portfolio",
-    "headline_1": "I make operations",
-    "headline_2": "boring.",
-    "headline_3": "On purpose.",
+    "headline_1": "I build",
+    "headline_2": "invisible",
+    "headline_3": "systems. On purpose.",
+    "subhero": "The goal isn't heroics. It's not needing any.",
     "cta": "Explore Curriculum Vitae"
   },
   "Philosophy": {

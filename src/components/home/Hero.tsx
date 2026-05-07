@@ -53,10 +53,15 @@ export function Hero() {
 
             <h1 className="hero-text text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.05] tracking-tighter mb-6 max-w-sm">
               {t("headline_1")} <br/>
-              <span className="text-accent">{t("headline_2")}</span><br/>
+              <span className="text-[#3FA2CC] hover:text-accent transition-colors duration-500 cursor-pointer select-none">
+                {t("headline_2")}
+              </span><br/>
               {t("headline_3")}
             </h1>
 
+            <p className="hero-text text-muted text-xs md:text-sm max-w-sm font-mono opacity-80 mb-8 leading-relaxed border-l border-accent/30 pl-4 select-none">
+              {t("subhero")}
+            </p>
 
             <Link href="#cv" className="hero-text relative overflow-hidden group px-8 py-4 bg-accent text-background font-bold rounded-full text-[10px] uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-accent/20">
               {t("cta")}
