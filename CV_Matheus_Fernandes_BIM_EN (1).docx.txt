@@ -1,0 +1,48 @@
+MATHEUS SIQUEIRA FERNANDES
+Target roles: Junior BIM Technician / Revit Technician | Digital Construction (Information Management / ISO 19650)
+Email: mathsf.ms@gmail.com | Phone: +55 21 99740-6599 | LinkedIn: linkedin.com/in/matheusfern | 90 Viewmount, Waterford
+Location: Ireland (currently based) | Open to on-site/hybrid roles
+PROFESSIONAL SUMMARY
+Civil Engineer transitioning into BIM, building hands-on capability in Revit (Structure + MEP) with a strong focus on model organization, documentation, and coordination workflows.
+Background in data governance and operational workflows within a global organization (Avolta), aligning global master data standards with local execution and cross-functional stakeholders.
+Founder and operations leader (KQ Personalizados) with end-to-end experience designing processes and control systems for inventory, orders, and production, improving reliability and execution under constraints.
+Analytical profile with strong decision-making under uncertainty and performance review habits developed through professional poker, plus solid communication and continuous improvement mindset.
+CORE SKILLS
+BIM / Digital Construction: Revit (Structure/MEP) • BIM documentation (views, sheets, schedules) • Information Management fundamentals (ISO 19650, CDE, naming, revisions) • Model checking mindset
+Data & Operations: Master Data / Data Governance • Process design and standardization • Stakeholder management • Supply chain / inventory control fundamentals
+Automation & Tools: Python (automation fundamentals, RPA) • Advanced Excel / Office 365 • Basic workflow documentation (checklists, issue logs)
+SELECTED PROJECTS (PORTFOLIO)
+BIM Portfolio (Revit Structure + MEP) — Ongoing: structured models with documentation sheets, schedules, and a coordination/issue example (before/after). Includes a mini “ISO 19650 deliverables pack” (CDE structure, naming convention, revision/status approach, issue log, transmittal template).
+KQ Inventory / Orders / Production Control System — Built an end-to-end control workflow to support operations (inventory accuracy, order tracking, production planning). Case study available for demonstration (screenshots/diagrams, anonymized where required).
+StockControl App (Restaurant) — Lightweight application to support a stock keeper with inbound/outbound tracking and operational visibility. Case study available.
+PROFESSIONAL EXPERIENCE
+Avolta Group — Commercial / Backoffice Analyst | Rio de Janeiro, Brazil | Jan 2025 – Feb 2026
+Supported supply chain operations and procurement processes during the launch of the group’s first restaurant in Latin America.
+Played a key role in developing and governing master data used for inventory control, supplier integration, and cost management.
+Acted as a bridge between the global master data team and the local operational team, ensuring alignment in data governance, product setup, and system configuration.
+Helped implement workflows integrating global backoffice systems with local sales operations, enabling consistent receiving, tax compliance, and financial reconciliation.
+KQ Personalizados — Founder / General Manager | Duque de Caxias, Brazil | Mar 2017 – Present
+Founded and scaled a personalized apparel business, leading sales, production planning, and operational execution end-to-end.
+Standardized processes and built a culture of quality and delivery discipline through clear workflows and training.
+Applied AI tools in product development and creative workflows to increase speed and consistency (tools used include Midjourney and similar platforms).
+Designed operational control approaches for inventory, orders, and production (case study available).
+Federal University of Juiz de Fora (UFJF) — Civil Engineering Intern (Infrastructure Maintenance) | Juiz de Fora, Brazil | Jan 2023 – Jun 2023
+Supported maintenance work-order routines and monitored service orders within the infrastructure department (PROINFRA).
+Developed a Python-based RPA automation to streamline a service order workflow and reduce manual processing.
+Professional Poker Player | Curitiba, Brazil | Apr 2020 – Aug 2023
+Built strong quantitative decision-making under uncertainty, rigorous review routines, and performance optimization habits through high-volume competitive environments.
+Mentored junior players and created learning material grounded in structured analysis and feedback.
+Bromberg Metallurgical Industry and Commerce — Quality Department Assistant | Rio de Janeiro, Brazil | Jan 2015 – Jan 2016
+Supported production process documentation and service order control; organized product-related documentation and assisted with industrial drawing routines.
+EDUCATION
+BEng in Civil Engineering — Federal University of Juiz de Fora (UFJF), Brazil (2016–2023)
+Technical Degree in Industrial Automation — CEFET-RJ, Brazil (2013–2015)
+TRAINING
+Python (course) — Hashtag Treinamentos (2023)
+Communication & Leadership — VTR Consultoria (2019)
+Copywriting (ongoing) — Light Copy (2024–present)
+LANGUAGES
+English: Fluent (professional communication)
+Portuguese: Native
+ADDITIONAL NOTES
+Portfolio and supporting evidence (screenshots, PDFs, short walkthrough videos) available upon request 

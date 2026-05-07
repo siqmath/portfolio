@@ -1,0 +1,58 @@
+{
+  "Navbar": {
+    "about": "Sobre",
+    "timeline": "CV",
+    "artifacts": "Consultoria",
+    "blog": "Log",
+    "contact": "Contato"
+  },
+  "Hero": {
+    "label": "Portfólio Pessoal Matheus Fernandes",
+    "headline_1": "Um founder dentro",
+    "headline_2": "da sua empresa.",
+    "cta": "Explorar Dossiê"
+  },
+  "Philosophy": {
+    "quote": "\"Aquilo que devemos aprender a fazer antes de poder fazê-lo, aprendemos fazendo.\"",
+    "author": "Aristóteles",
+    "statement_1": "Uma estrutura frágil se rompe quando:",
+    "statement_1_value": "a teoria encontra a realidade.",
+    "statement_2": "A tração antifrágil escala:",
+    "statement_2_value": "absorvendo o impacto da execução."
+  },
+  "Timeline": {
+    "node_product_title": "Product Strategy & Operations",
+    "node_product_content": "Ciclo de vida do Produto (End-to-end), metodologias lean e escalabilidade da cadeia de suprimentos (KQ Universitários / Avolta Group).",
+    "node_engineering_title": "Engineering",
+    "node_engineering_content": "Rigor de Engenharia Civil e execução de Automação Industrial. Construindo sistemas robustos e previsíveis.",
+    "node_design_title": "Design",
+    "node_design_content": "Pensamento Sistêmico, Design de Serviço, Liderança Técnica em Design e Design focado em Escalabilidade.",
+    "node_code_title": "Code & Automation",
+    "node_code_content": "Implementação de IA: Workflows via agentes autônomos. Arquitetura de Sistemas. Proficiência Técnica: deploy na nuvem e DNS. Integrações via API.",
+    "node_founder_title": "Founder",
+    "node_founder_content": "8+ anos escalando uma operação nacional. Gestão de P&L, negociação com stakeholders e tração pura (GRIP).",
+    "node_pm_title": "Gestão de Projetos",
+    "node_pm_content": "Entrega de Projetos e Operações: Liderança de lançamentos complexos, metodologias Ágeis (Scrum/Kanban) e excelência operacional em ambientes multinacionais."
+  },
+  "Timeline_Dossier": {
+    "title": "Dossiê de Execução",
+    "item1_role": "Operações de Back-Office",
+    "item1_company": "Avolta Group",
+    "item1_desc": "Operações de back-office para o lançamento de projeto multinacional de F&B. Alinhamento com padrões corporativos mundiais, controle de inventário e resolução de gargalos.",
+    "item2_role": "Fundador & PM de Operações",
+    "item2_company": "KQ Universitários",
+    "item2_desc": "Startup de manufatura personalizada escalada nacionalmente. Gestão end-to-end do ciclo de vida de +12 linhas de produto.",
+    "item3_role": "Estágio em Engenharia (RPA/Automação)",
+    "item3_company": "PROINFRA / UFJF",
+    "item3_desc": "Desenvolvimento de automações Python RPA para workflows de ordens de serviço, reduzindo carga manual.",
+    "item4_role": "Engenharia Civil (Graduação)",
+    "item4_company": "UFJF",
+    "item4_desc": "Rigor de engenharia, lógica estrutural e pensamento sistêmico aplicado a infraestrutura de grande escala.",
+    "item5_role": "Estágio em Qualidade Industrial",
+    "item5_company": "Bromberg",
+    "item5_desc": "Controle de qualidade, documentação de ordens de serviço e auditoria de processos industriais.",
+    "item6_role": "Automação Industrial (Técnico)",
+    "item6_company": "CEFET-RJ",
+    "item6_desc": "Formação técnica de base em automação, robótica e controle de processos industriais."
+  }
+}

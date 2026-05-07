@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  /* Preset: Executive Traction (C-Level Edition) */
+  --color-petrol: #1B3A4B;
+  --color-burnt: #E07A3A;
+  --color-cream: #F0EDEB;
+  --color-graphite: #2D2D2D;
+
+  /* Padrão Escuro Opressivo (A ponte entre engenharia e sala de reunião) */
+  --background: var(--color-petrol);
+  --foreground: var(--color-cream);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--color-petrol);
+  --color-accent: var(--color-burnt);
+  /* Ajuste CRÍTICO de Contraste: O Graphite (#2D2D2D) não pode ser o texto 'muted' em um fundo Azul-Petróleo (#1B3A4B). 
+     Usaremos um Cinza/Creme translúcido ou um tom pastel específico. */
+  --color-muted: #A1B2BA; /* Tom legível C-Level para informações secundárias sobre o azul-petróleo */
+  --color-graphite-dark: var(--color-graphite);
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-display: var(--font-plex), ui-sans-serif, system-ui;
+  --font-mono: var(--font-mono), ui-monospace, Menlo;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Scrollbar opressiva e minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-graphite);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-burnt);
+}
+
+/* Animation for the pulsing effect */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Animation for the ping effect */
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
