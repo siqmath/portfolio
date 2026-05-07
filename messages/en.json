@@ -3,14 +3,14 @@
     "about": "About",
     "timeline": "CV",
     "artifacts": "Consultancy",
-    "blog": "Log",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "Hero": {
     "label": "Matheus Fernandes Personal Portfolio",
     "headline_1": "A founder inside",
     "headline_2": "your company.",
-    "cta": "Explore Dossier"
+    "cta": "Explore Curriculum Vitae"
   },
   "Philosophy": {
     "quote": "\"For the things we need to learn before we can do them, we learn by doing them.\"",
@@ -35,7 +35,7 @@
     "node_pm_content": "Project Delivery & Operations: Leading complex launches, Agile methodologies (Scrum/Kanban), and operational excellence in multinational environments."
   },
   "Timeline_Dossier": {
-    "title": "Execution Dossier",
+    "title": "Curriculum Vitae",
     "item1_role": "Back-Office Operations",
     "item1_company": "Avolta Group",
     "item1_desc": "Back-office operations for the launch of a multinational Food & Beverage project. Alignment with global corporate standards, rigorous inventory control, and supply chain bottleneck resolution.",

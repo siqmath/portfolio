@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { InfiniteGrid } from "@/components/ui/the-infinite-grid";
@@ -62,9 +63,9 @@ export function Hero() {
               Process-driven autonomy.
             </p>
 
-            <button className="hero-text relative overflow-hidden group px-8 py-4 bg-accent text-background font-bold rounded-full text-[10px] uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-accent/20">
+            <Link href="#cv" className="hero-text relative overflow-hidden group px-8 py-4 bg-accent text-background font-bold rounded-full text-[10px] uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-accent/20">
               {t("cta")}
-            </button>
+            </Link>
           </div>
 
         </div>

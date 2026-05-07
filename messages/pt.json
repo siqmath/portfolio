@@ -3,14 +3,14 @@
     "about": "Sobre",
     "timeline": "CV",
     "artifacts": "Consultoria",
-    "blog": "Log",
+    "blog": "Blog",
     "contact": "Contato"
   },
   "Hero": {
     "label": "Portfólio Pessoal Matheus Fernandes",
     "headline_1": "Um founder dentro",
     "headline_2": "da sua empresa.",
-    "cta": "Explorar Dossiê"
+    "cta": "Explorar Curriculum Vitae"
   },
   "Philosophy": {
     "quote": "\"Aquilo que devemos aprender a fazer antes de poder fazê-lo, aprendemos fazendo.\"",
@@ -35,7 +35,7 @@
     "node_pm_content": "Entrega de Projetos e Operações: Liderança de lançamentos complexos, metodologias Ágeis (Scrum/Kanban) e excelência operacional em ambientes multinacionais."
   },
   "Timeline_Dossier": {
-    "title": "Dossiê de Execução",
+    "title": "Curriculum Vitae",
     "item1_role": "Operações de Back-Office",
     "item1_company": "Avolta Group",
     "item1_desc": "Operações de back-office para o lançamento de projeto multinacional de F&B. Alinhamento com padrões corporativos mundiais, controle de inventário e resolução de gargalos.",

@@ -28,10 +28,10 @@ export function Navbar() {
           : "bg-transparent border-transparent text-foreground"
       }`}
     >
-      <div className="font-display font-bold tracking-tight text-lg">MF</div>
+      <Link href="/" className="font-display font-bold tracking-tight text-lg hover:text-accent transition-colors">MF</Link>
       
       <div className="hidden md:flex gap-6 text-sm font-medium">
-        <Link href="#dossier" className="hover:-translate-y-[1px] hover:text-accent transition-transform">
+        <Link href="#cv" className="hover:-translate-y-[1px] hover:text-accent transition-transform">
           {t("timeline")}
         </Link>
         <Link href="#mechanics" className="hover:-translate-y-[1px] hover:text-accent transition-transform">
