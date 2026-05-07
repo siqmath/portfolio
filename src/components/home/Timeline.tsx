@@ -76,11 +76,11 @@ export function Timeline() {
               <div className={`pl-12 md:pl-0 md:w-[45%] flex flex-col gap-4 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
                 <div className="font-mono text-accent font-bold text-sm tracking-widest uppercase">
                   {/* Years are not in translate yet, keeping them structured */}
-                  {index === 0 ? "2025 - 2026" : 
-                   index === 1 ? "2015 - Present" : 
+                  {index === 0 ? "Jan 2025 – Jan 2026" : 
+                   index === 1 ? "2016 – 2026" : 
                    index === 2 ? "2023" : 
-                   index === 3 ? "2016 - 2023" : 
-                   index === 4 ? "2015 - 2016" : "2013 - 2015"}
+                   index === 3 ? "2016 – 2023" : 
+                   index === 4 ? "2015 – 2016" : "2013 – 2015"}
                 </div>
                 
                 <h3 className="font-display text-3xl md:text-4xl font-bold leading-tight">
