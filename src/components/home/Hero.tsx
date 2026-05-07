@@ -53,15 +53,10 @@ export function Hero() {
 
             <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tighter mb-8 max-w-sm">
               {t("headline_1")} <br/>
-              <span className="text-accent">{t("headline_2")}</span>
+              <span className="text-accent">{t("headline_2")}</span><br/>
+              {t("headline_3")}
             </h1>
 
-            <div className="hero-text w-24 h-[1px] bg-accent/30 mb-8" />
-            
-            <p className="hero-text text-muted-foreground text-base max-w-xs font-light leading-relaxed mb-10 opacity-70">
-              I make operations boring. <br/>
-              On purpose.
-            </p>
 
             <Link href="#cv" className="hero-text relative overflow-hidden group px-8 py-4 bg-accent text-background font-bold rounded-full text-[10px] uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-accent/20">
               {t("cta")}
