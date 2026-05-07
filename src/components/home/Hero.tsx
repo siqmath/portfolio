@@ -59,8 +59,8 @@ export function Hero() {
             <div className="hero-text w-24 h-[1px] bg-accent/30 mb-8" />
             
             <p className="hero-text text-muted-foreground text-base max-w-xs font-light leading-relaxed mb-10 opacity-70">
-              Antifragile systems. <br/>
-              Process-driven autonomy.
+              I make operations boring. <br/>
+              On purpose.
             </p>
 
             <Link href="#cv" className="hero-text relative overflow-hidden group px-8 py-4 bg-accent text-background font-bold rounded-full text-[10px] uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-accent/20">
