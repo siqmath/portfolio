@@ -188,7 +188,6 @@ export function RadialOrbitalTimeline({
             onClick={(e) => { e.stopPropagation(); toggleItem(founderNode.id); }}
           >
             <div className="absolute w-32 h-32 rounded-full border border-accent/20 animate-ping opacity-70"></div>
-            <div className="absolute w-40 h-40 rounded-full border border-petrol/30 animate-ping opacity-50" style={{ animationDelay: "0.5s" }}></div>
             <div className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
               <Zap size={24} />
             </div>
@@ -261,7 +260,7 @@ export function RadialOrbitalTimeline({
                   <Icon size={18} />
                 </div>
 
-                <div className={`absolute top-14 whitespace-nowrap left-1/2 -translate-x-1/2 text-[10px] md:text-xs font-mono tracking-widest uppercase transition-all duration-300 pointer-events-none ${isExpanded || isHovered ? "text-foreground font-bold" : "text-foreground/50"}`}>
+                <div className={`absolute top-14 whitespace-nowrap left-1/2 -translate-x-1/2 text-[10px] md:text-xs font-mono tracking-widest uppercase transition-all duration-300 pointer-events-none ${isExpanded || isHovered ? "text-[#1B3A4B] font-bold" : "text-[#1B3A4B]/50"}`}>
                   {t(`node_${item.key}_title`)}
                 </div>
 

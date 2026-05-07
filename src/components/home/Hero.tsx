@@ -35,7 +35,7 @@ export function Hero() {
 
           <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl xl:text-[6rem] font-display font-bold leading-[1.05] tracking-tighter mb-6 max-w-3xl">
             {t("headline_1")} <br/>
-            <span className="text-[#3FA2CC] hover:text-accent transition-colors duration-500 cursor-pointer select-none">
+            <span className="text-[#1B3A4B] hover:text-accent transition-colors duration-500 cursor-pointer select-none">
               {t("headline_2")}
             </span><br/>
             {t("headline_3")}
