@@ -41,17 +41,17 @@ export function Hero() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-20 flex flex-col lg:grid lg:grid-cols-12 items-center gap-12 lg:gap-24 h-full">
           
           {/* Left: Radial Timeline */}
-          <div className="lg:col-span-7 w-full h-[500px] lg:h-[750px] flex items-center justify-center radial-hero order-2 lg:order-1 transform lg:-translate-y-40 z-20">
+          <div className="lg:col-span-7 w-full h-[450px] lg:h-[600px] flex items-center justify-center radial-hero order-2 lg:order-1 transform lg:-translate-y-16 z-20">
             <RadialOrbitalTimeline />
           </div>
 
           {/* Right: Headlines */}
           <div className="lg:col-span-5 flex flex-col items-start lg:items-start text-left order-1 lg:order-2">
-            <div className="hero-text border border-muted/20 px-4 py-1 rounded-full text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-muted mb-8">
+            <div className="hero-text border border-muted/20 px-4 py-1 rounded-full text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-muted mb-6">
               {t("label")}
             </div>
 
-            <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tighter mb-8 max-w-sm">
+            <h1 className="hero-text text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.05] tracking-tighter mb-6 max-w-sm">
               {t("headline_1")} <br/>
               <span className="text-accent">{t("headline_2")}</span><br/>
               {t("headline_3")}
