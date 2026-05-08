@@ -184,28 +184,28 @@ export function RadialOrbitalTimeline({
           
           {/* Central Pulsating Node (Business/Founder) */}
           <div 
-            className={`absolute w-24 h-24 rounded-full bg-gradient-to-br from-petrol via-accent to-background animate-pulse flex flex-col items-center justify-center cursor-pointer group transition-all duration-300 ${expandedItems[founderNode.id] ? "z-[300]" : "z-10"}`}
+            className={`absolute w-24 h-24 rounded-full bg-gradient-to-br from-petrol to-background animate-pulse flex flex-col items-center justify-center cursor-pointer group transition-all duration-300 ${expandedItems[founderNode.id] ? "z-[300]" : "z-10"}`}
             onClick={(e) => { e.stopPropagation(); toggleItem(founderNode.id); }}
           >
-            <div className="absolute w-32 h-32 rounded-full border border-accent/20 animate-ping opacity-70"></div>
-            <div className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
+            <div className="absolute w-32 h-32 rounded-full border border-muted/20 animate-ping opacity-70"></div>
+            <div className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-muted group-hover:scale-110 transition-transform">
               <Zap size={24} />
             </div>
-            <div className="absolute top-28 whitespace-nowrap text-[10px] font-mono tracking-[0.2em] font-bold text-accent uppercase">
+            <div className="absolute top-28 whitespace-nowrap text-[10px] font-mono tracking-[0.2em] font-bold text-muted uppercase">
               {t("node_founder_title")}
             </div>
 
             {expandedItems[founderNode.id] && (
-               <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 md:w-80 lg:w-[500px] bg-background/95 backdrop-blur-xl border-accent/40 shadow-2xl shadow-black/50 overflow-visible z-50">
-               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-px h-4 bg-accent/50"></div>
+               <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 md:w-80 lg:w-[500px] bg-background/95 backdrop-blur-xl border-muted/40 shadow-2xl shadow-black/50 overflow-visible z-50">
+               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-px h-4 bg-muted/50"></div>
                <CardHeader className="pb-3 pt-6 flex flex-row items-center justify-between">
-                 <CardTitle className="text-base md:text-xl font-display font-bold text-accent uppercase tracking-widest leading-tight">
+                 <CardTitle className="text-base md:text-xl font-display font-bold text-muted uppercase tracking-widest leading-tight">
                    {t("node_founder_title")}
                  </CardTitle>
                  <Button
                     variant="ghost"
                     size="icon"
-                    className="h-6 w-6 rounded-full hover:bg-accent/10 hover:text-accent -mr-2 -mt-2"
+                    className="h-6 w-6 rounded-full hover:bg-muted/10 hover:text-muted -mr-2 -mt-2"
                     onClick={(e) => { e.stopPropagation(); toggleItem(founderNode.id); }}
                  >
                    <X size={14} />
@@ -216,13 +216,13 @@ export function RadialOrbitalTimeline({
                  <div className="mt-8 pt-6 border-t border-foreground/10">
                    <div className="flex justify-between items-center text-[10px] md:text-xs uppercase font-mono tracking-widest mb-3 opacity-70">
                      <span className="flex items-center">
-                       <Zap size={12} className="mr-2 text-accent" />
+                       <Zap size={12} className="mr-2 text-muted" />
                        Strategic Traction
                      </span>
                      <span>100%</span>
                    </div>
                    <div className="w-full h-1.5 bg-foreground/10 rounded-full overflow-hidden">
-                     <div className="h-full bg-accent w-full animate-in slide-in-from-left duration-1000"></div>
+                     <div className="h-full bg-muted w-full animate-in slide-in-from-left duration-1000"></div>
                    </div>
                  </div>
                </CardContent>
