@@ -184,10 +184,10 @@ export function RadialOrbitalTimeline({
           
           {/* Central Pulsating Node (Business/Founder) */}
           <div 
-            className={`absolute w-24 h-24 rounded-full bg-gradient-to-br from-petrol to-background animate-pulse flex flex-col items-center justify-center cursor-pointer group transition-all duration-300 ${expandedItems[founderNode.id] ? "z-[300]" : "z-10"}`}
+            className={`absolute w-24 h-24 rounded-full bg-gradient-to-br from-petrol to-background flex flex-col items-center justify-center cursor-pointer group transition-all duration-300 ${expandedItems[founderNode.id] ? "z-[300]" : "z-10"}`}
             onClick={(e) => { e.stopPropagation(); toggleItem(founderNode.id); }}
           >
-            <div className="absolute w-32 h-32 rounded-full border border-muted/20 animate-ping opacity-70"></div>
+            <div className="absolute w-32 h-32 rounded-full border border-muted/20 opacity-70"></div>
             <div className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-muted group-hover:scale-110 transition-transform">
               <Zap size={24} />
             </div>
