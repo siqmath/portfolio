@@ -38,6 +38,9 @@
   },
   "Timeline_Dossier": {
     "title": "Curriculum Vitae",
+    "item0_role": "Product Manager",
+    "item0_company": "Nova Habitar · Waterford, Irlanda",
+    "item0_desc": "Liderança da estratégia de produto para valorização de ativos imobiliários. Gestão de contratos entre proprietários de terrenos, construtores e investidores. Estruturação de ofertas baseada em dados de mercado e valor real de activos.",
     "item1_role": "Back-Office & Product Owner",
     "item1_company": "Avolta Group",
     "item1_desc": "Abertura do 1º restaurante do grupo na América Latina (US$ 15,8bi em receita global). Atuei como Buyer de Supply Chain, ponte de comunicação entre stakeholders internacionais e o time local, e Product Owner do software 'Digital' — integrando a complexidade fiscal brasileira ao sistema Oracle da Avolta Internacional.",

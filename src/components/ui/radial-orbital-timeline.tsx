@@ -65,10 +65,12 @@ const founderNode: TimelineItem = {
 
 interface RadialOrbitalTimelineProps {
   timelineData?: TimelineItem[];
+  externalActiveKey?: NodeKey | null;
 }
 
 export function RadialOrbitalTimeline({
   timelineData = defaultTimelineData,
+  externalActiveKey,
 }: RadialOrbitalTimelineProps) {
   const t = useTranslations("Timeline");
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
@@ -78,6 +80,37 @@ export function RadialOrbitalTimeline({
   const [hoverPulse, setHoverPulse] = useState<Record<number, boolean>>({});
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
   
+  // External control: activate node from Intent Selector
+  useEffect(() => {
+    if (!externalActiveKey) {
+      setExpandedItems({});
+      setActiveNodeId(null);
+      setPulseEffect({});
+      setHoverPulse({});
+      setAutoRotate(true);
+      return;
+    }
+    const allItems = [...timelineData, founderNode];
+    const targetItem = allItems.find((item) => item.key === externalActiveKey);
+    if (!targetItem) return;
+    const relatedIds = targetItem.id === 6 ? founderNode.relatedIds : targetItem.relatedIds;
+    const newPulse: Record<number, boolean> = {};
+    relatedIds.forEach((rid) => { newPulse[rid] = true; });
+    setExpandedItems({ [targetItem.id]: true });
+    setActiveNodeId(targetItem.id);
+    setAutoRotate(false);
+    setHoverPulse({});
+    setPulseEffect(newPulse);
+    if (targetItem.id !== 6) {
+      const nodeIndex = timelineData.findIndex((item) => item.id === targetItem.id);
+      if (nodeIndex !== -1) {
+        const totalNodes = timelineData.length;
+        const targetAngle = (nodeIndex / totalNodes) * 360;
+        setRotationAngle(270 - targetAngle);
+      }
+    }
+  }, [externalActiveKey]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
