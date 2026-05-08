@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -8,6 +8,7 @@ import { InfiniteGrid } from "@/components/ui/the-infinite-grid";
 
 export function Hero() {
   const t = useTranslations("Hero");
+  const locale = useLocale();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export function Hero() {
             {t("label")}
           </div>
 
-          <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl xl:text-[6rem] font-display font-bold leading-[1.05] tracking-tighter mb-6 max-w-3xl">
+          <h1 className="hero-text text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[6rem] font-display font-bold leading-[1.05] tracking-tighter mb-6 max-w-4xl">
             {t("headline_1")} <br/>
             <span className="text-[#1B3A4B] hover:text-accent transition-colors duration-500 cursor-pointer select-none">
               {t("headline_2")}
