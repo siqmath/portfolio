@@ -73,6 +73,12 @@ export function RadialOrbitalTimeline({
   externalActiveKey,
 }: RadialOrbitalTimelineProps) {
   const t = useTranslations("Timeline");
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
   const [rotationAngle, setRotationAngle] = useState<number>(0);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
@@ -205,6 +211,10 @@ export function RadialOrbitalTimeline({
     if (!activeNodeId) return false;
     return getRelatedItems(activeNodeId).includes(itemId);
   };
+
+  if (!isMounted) {
+    return <div className="w-full h-[600px] flex items-center justify-center bg-transparent" />;
+  }
 
   return (
     <div
