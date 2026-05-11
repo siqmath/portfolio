@@ -15,12 +15,17 @@
     "cta": "Explorar Curriculum Vitae"
   },
   "Philosophy": {
-    "quote": "\"Aquilo que devemos aprender a fazer antes de poder fazê-lo, aprendemos fazendo.\"",
-    "author": "Aristóteles",
-    "statement_1": "Uma estrutura frágil se rompe quando:",
-    "statement_1_value": "a teoria encontra a realidade.",
-    "statement_2": "A tração antifrágil escala:",
-    "statement_2_value": "absorvendo o impacto da execução."
+    "label": "Arquitetura de Pensamento",
+    "title": "A Tríade Operacional",
+    "pillar_1_title": "Antifragilidade",
+    "pillar_1_author": "(Nassim Taleb)",
+    "pillar_1_desc": "Desenvolvimento de sistemas que não apenas resistem, mas se beneficiam do caos e da volatilidade.",
+    "pillar_2_title": "Ultralearning",
+    "pillar_2_author": "(Scott Young)",
+    "pillar_2_desc": "Aquisição agressiva, veloz e auto-direcionada de competências técnicas para dissolver gargalos operacionais.",
+    "product_title": "PRISMA",
+    "product_author": "Autoria Própria",
+    "product_desc": "A síntese operacional. Framework proprietário que refrata complexidade bruta em componentes auditáveis de alta tração."
   },
   "Timeline": {
     "node_product_title": "Product Strategy & Operations",

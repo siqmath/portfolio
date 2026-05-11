@@ -58,3 +58,12 @@ body {
 @keyframes ping {
   75%, 100% { transform: scale(2); opacity: 0; }
 }
+/* Marquee Animation from Nova Habitar */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}

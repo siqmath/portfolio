@@ -15,12 +15,17 @@
     "cta": "Explore Curriculum Vitae"
   },
   "Philosophy": {
-    "quote": "\"For the things we need to learn before we can do them, we learn by doing them.\"",
-    "author": "Aristotle",
-    "statement_1": "Fragile models break when:",
-    "statement_1_value": "theory meets reality.",
-    "statement_2": "Antifragile traction scales:",
-    "statement_2_value": "by absorbing execution impact."
+    "label": "Thought Architecture",
+    "title": "The Operational Triad",
+    "pillar_1_title": "Antifragility",
+    "pillar_1_author": "(Nassim Taleb)",
+    "pillar_1_desc": "Developing systems that don't just withstand, but benefit and scale from chaos and volatility.",
+    "pillar_2_title": "Ultralearning",
+    "pillar_2_author": "(Scott Young)",
+    "pillar_2_desc": "Aggressive, fast, self-directed acquisition of high-tier technical competence to dissolve bottlenecks.",
+    "product_title": "PRISMA",
+    "product_author": "Authored System",
+    "product_desc": "The operational synthesis. A proprietary framework that refracts raw complexity into high-traction, auditable components."
   },
   "Timeline": {
     "node_product_title": "Product Strategy & Operations",
