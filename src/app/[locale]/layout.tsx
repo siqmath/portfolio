@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   description: "Portfólio Digital de Matheus Fernandes",
 };
 
+import ConstructionPopup from "@/components/ui/ConstructionPopup";
+
 export default async function RootLayout({
   children,
   params
@@ -59,6 +61,7 @@ export default async function RootLayout({
         </svg>
 
         <NextIntlClientProvider messages={messages}>
+          <ConstructionPopup />
           {children}
         </NextIntlClientProvider>
       </body>
