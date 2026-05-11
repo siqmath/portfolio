@@ -60,7 +60,7 @@ export default function ConstructionPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000] w-full max-w-md overflow-hidden"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000] w-full max-w-2xl overflow-hidden"
           >
             {/* Blueprint Container */}
             <div className="relative bg-petrol/90 border border-burnt/30 rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] backdrop-blur-xl p-1 flex flex-col group">
@@ -103,7 +103,7 @@ export default function ConstructionPopup() {
                     key={lang}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="text-sm sm:text-base text-foreground font-light leading-relaxed tracking-wide text-pretty"
+                    className="text-lg sm:text-xl md:text-2xl text-foreground font-light leading-relaxed tracking-wide text-pretty"
                   >
                     {content[lang].message}
                   </motion.p>
@@ -114,7 +114,7 @@ export default function ConstructionPopup() {
                   {/* Enter Button */}
                   <button
                     onClick={handleClose}
-                    className="flex-1 py-3 px-4 bg-burnt text-black font-bold font-mono text-xs uppercase tracking-widest rounded hover:bg-burnt/80 hover:shadow-[0_0_20px_rgba(224,122,58,0.4)] transition-all active:scale-95"
+                    className="flex-1 py-4 px-6 bg-burnt text-background font-bold font-mono text-xs md:text-sm uppercase tracking-widest rounded hover:bg-burnt/80 hover:shadow-[0_0_20px_rgba(224,122,58,0.4)] transition-all active:scale-95"
                   >
                     {content[lang].closeText}
                   </button>
