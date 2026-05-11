@@ -25,7 +25,16 @@
     "pillar_2_desc": "Aggressive, fast, self-directed acquisition of high-tier technical competence to dissolve bottlenecks.",
     "product_title": "PRISMA",
     "product_author": "Authored System",
-    "product_desc": "The operational synthesis. A proprietary framework that refracts raw complexity into high-traction, auditable components."
+    "product_desc": "The operational synthesis. A proprietary framework that refracts raw complexity into high-traction, auditable components.",
+    "pillar_1_sub_1": "STRESS INOCULATION",
+    "pillar_1_sub_2": "OPTIONALITY",
+    "pillar_1_sub_3": "BARBELL STRATEGY",
+    "pillar_2_sub_1": "META-LEARNING",
+    "pillar_2_sub_2": "DRILLS",
+    "pillar_2_sub_3": "RETENTION",
+    "cta_void": "INITIALIZE PRISMA_OS_V1",
+    "back": "BACK",
+    "detail_panel_title": "SYSTEM TELEMETRY"
   },
   "Timeline": {
     "node_product_title": "Product Strategy & Operations",

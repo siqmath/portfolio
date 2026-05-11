@@ -25,7 +25,16 @@
     "pillar_2_desc": "Aquisição agressiva, veloz e auto-direcionada de competências técnicas para dissolver gargalos operacionais.",
     "product_title": "PRISMA",
     "product_author": "Autoria Própria",
-    "product_desc": "A síntese operacional. Framework proprietário que refrata complexidade bruta em componentes auditáveis de alta tração."
+    "product_desc": "A síntese operacional. Framework proprietário que refrata complexidade bruta em componentes auditáveis de alta tração.",
+    "pillar_1_sub_1": "INOCULAÇÃO DE ESTRESSE",
+    "pillar_1_sub_2": "OPCIONALIDADE",
+    "pillar_1_sub_3": "ESTRATÉGIA BARBELL",
+    "pillar_2_sub_1": "META-LEARNING",
+    "pillar_2_sub_2": "DRILLS (TREINOS)",
+    "pillar_2_sub_3": "RETENÇÃO",
+    "cta_void": "INICIAR PRISMA_OS_V1",
+    "back": "VOLTAR",
+    "detail_panel_title": "TELEMETRIA DO SISTEMA"
   },
   "Timeline": {
     "node_product_title": "Product Strategy & Operations",
