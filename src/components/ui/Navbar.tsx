@@ -3,39 +3,55 @@
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Reliable SVG Flags to fix Windows emoji support issues
+const FlagIE = () => (
+  <svg viewBox="0 0 6 3" className="w-4 h-2.5 rounded-sm shadow-sm">
+    <rect width="2" height="3" fill="#169B62"/>
+    <rect x="2" width="2" height="3" fill="#ffffff"/>
+    <rect x="4" width="2" height="3" fill="#FF883E"/>
+  </svg>
+);
+
+const FlagBR = () => (
+  <svg viewBox="0 0 720 504" className="w-4 h-2.5 rounded-sm shadow-sm">
+    <rect width="720" height="504" fill="#009c3b"/>
+    <polygon points="360,48 672,252 360,456 48,252" fill="#ffdf00"/>
+    <circle cx="360" cy="252" r="100.8" fill="#002776"/>
+  </svg>
+);
 
 export function Navbar() {
   const t = useTranslations("Navbar");
   const locale = useLocale();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show navbar only after scrolling 100px
       setScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const otherLocale = locale === "en" ? "pt" : "en";
-
   const handleTopClick = (e: React.MouseEvent) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
-    window.history.pushState({}, '', '/');
   };
 
   return (
     <nav
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-8 px-6 md:px-8 py-3 rounded-full border shadow-2xl transition-all duration-500 font-sans ${
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6 px-6 py-3 rounded-full border shadow-2xl transition-all duration-500 font-sans ${
         scrolled
-          ? "translate-y-0 opacity-100 bg-background/70 backdrop-blur-xl border-white/10 scale-100 pointer-events-auto"
-          : "-translate-y-8 opacity-0 scale-95 pointer-events-none border-transparent"
+          ? "translate-y-0 opacity-100 bg-background/80 backdrop-blur-xl border-white/10 pointer-events-auto"
+          : "-translate-y-8 opacity-0 pointer-events-none border-transparent"
       }`}
     >
-      {/* Logo MF to Top */}
       <Link 
         href="/" 
         onClick={handleTopClick} 
@@ -44,38 +60,66 @@ export function Navbar() {
         MF
       </Link>
       
-      <div className="hidden md:flex gap-6 text-xs uppercase font-bold tracking-widest">
-        <Link href="#cv" className="text-foreground/70 hover:text-accent transition-colors">
-          {t("timeline")}
-        </Link>
-        
-        {/* Consultoria links to last section (#consulting) */}
-        <Link href="#consulting" className="text-foreground/70 hover:text-accent transition-colors">
-          {t("artifacts")}
-        </Link>
-        
-        <Link href="/blog" className="text-foreground/70 hover:text-accent transition-colors">
-          {t("blog")}
-        </Link>
+      <div className="hidden md:flex gap-5 text-[10px] md:text-xs uppercase font-bold tracking-widest">
+        <Link href="#cv" className="text-foreground/60 hover:text-accent transition-colors">{t("timeline")}</Link>
+        <Link href="#consulting" className="text-foreground/60 hover:text-accent transition-colors">{t("artifacts")}</Link>
+        <Link href="/blog" className="text-foreground/60 hover:text-accent transition-colors">{t("blog")}</Link>
       </div>
 
-      <div className="flex items-center gap-3">
-        {/* Premium Locale Picker with custom flags */}
-        <Link
-          href={pathname}
-          locale={otherLocale}
-          className="flex items-center gap-2 text-[11px] font-mono font-black px-3 py-1.5 bg-white/5 border border-white/10 rounded-full hover:border-accent/50 hover:bg-white/10 hover:text-accent transition-all uppercase select-none"
-        >
-          <span className="text-sm leading-none filter saturate-150">
-            {otherLocale === "en" ? "🇮🇪" : "🇧🇷"}
-          </span>
-          <span>
-            {otherLocale}
-          </span>
-        </Link>
+      <div className="flex items-center gap-3 pl-2 border-l border-white/10">
+        {/* DYNAMIC EXPANDING LANGUAGE SELECTOR */}
+        <div className="flex items-center bg-white/5 rounded-full p-0.5 border border-white/5 overflow-hidden">
+          
+          {/* PT BUTTON */}
+          <Link 
+            href={pathname} 
+            locale="pt"
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all text-[10px] font-black uppercase tracking-wider ${
+              locale === "pt" ? "bg-white/10 text-accent" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <AnimatePresence mode="wait">
+              {isHovered && (
+                <motion.div
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  className="flex shrink-0 overflow-hidden"
+                >
+                  <FlagBR />
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <span>PT</span>
+          </Link>
+
+          {/* EN BUTTON */}
+          <Link 
+            href={pathname} 
+            locale="en"
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all text-[10px] font-black uppercase tracking-wider ${
+              locale === "en" ? "bg-white/10 text-accent" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <AnimatePresence mode="wait">
+              {isHovered && (
+                <motion.div
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  className="flex shrink-0 overflow-hidden"
+                >
+                  <FlagIE />
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <span>EN</span>
+          </Link>
+
+        </div>
         
-        <Link href="#contact" className="hidden md:block relative overflow-hidden group px-5 py-2 bg-accent text-background font-bold uppercase tracking-widest rounded-full text-[10px] transition-transform hover:scale-105 active:scale-95">
-          <span className="relative z-10">{t("contact")}</span>
+        <Link href="#contact" className="hidden md:block relative px-4 py-2 bg-accent text-background font-bold uppercase tracking-widest rounded-full text-[9px] transition-transform hover:scale-105 active:scale-95 whitespace-nowrap">
+          {t("contact")}
         </Link>
       </div>
     </nav>
