@@ -38,8 +38,11 @@ export function Navbar() {
   }, []);
 
   const handleTopClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Only smooth scroll to top if we are already on the homepage
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -55,15 +58,16 @@ export function Navbar() {
       <Link 
         href="/" 
         onClick={handleTopClick} 
-        className="font-display font-black tracking-tighter text-xl text-foreground hover:text-accent transition-colors"
+        className="font-display font-black tracking-tighter text-xl text-foreground hover:text-white transition-colors"
       >
         MF
       </Link>
       
-      <div className="hidden md:flex gap-5 text-[10px] md:text-xs uppercase font-bold tracking-widest">
-        <Link href="#cv" className="text-foreground/60 hover:text-accent transition-colors">{t("timeline")}</Link>
-        <Link href="#consulting" className="text-foreground/60 hover:text-accent transition-colors">{t("artifacts")}</Link>
-        <Link href="/blog" className="text-foreground/60 hover:text-accent transition-colors">{t("blog")}</Link>
+      <div className="hidden md:flex gap-5 items-center text-[10px] md:text-xs uppercase font-bold tracking-widest">
+        <Link href="#cv" className="text-foreground/60 hover:text-white transition-colors">{t("timeline")}</Link>
+        <Link href="/projects" className="text-foreground/60 hover:text-white transition-colors">{t("artifacts")}</Link>
+        <Link href="/blog" className="text-foreground/60 hover:text-white transition-colors">{t("blog")}</Link>
+        <Link href="/contact" className="text-white transition-opacity hover:opacity-80">{t("contact")}</Link>
       </div>
 
       <div className="flex items-center gap-3 pl-2 border-l border-white/10">
@@ -75,7 +79,7 @@ export function Navbar() {
             href={pathname} 
             locale="pt"
             className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all text-[10px] font-black uppercase tracking-wider ${
-              locale === "pt" ? "bg-white/10 text-accent" : "text-muted-foreground hover:text-foreground"
+              locale === "pt" ? "bg-white text-black" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <AnimatePresence mode="wait">
@@ -98,7 +102,7 @@ export function Navbar() {
             href={pathname} 
             locale="en"
             className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all text-[10px] font-black uppercase tracking-wider ${
-              locale === "en" ? "bg-white/10 text-accent" : "text-muted-foreground hover:text-foreground"
+              locale === "en" ? "bg-white text-black" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <AnimatePresence mode="wait">
@@ -117,10 +121,6 @@ export function Navbar() {
           </Link>
 
         </div>
-        
-        <Link href="#contact" className="hidden md:block relative px-4 py-2 bg-accent text-background font-bold uppercase tracking-widest rounded-full text-[9px] transition-transform hover:scale-105 active:scale-95 whitespace-nowrap">
-          {t("contact")}
-        </Link>
       </div>
     </nav>
   );

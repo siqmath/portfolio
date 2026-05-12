@@ -27,6 +27,11 @@
   --font-mono: var(--font-mono), ui-monospace, Menlo;
 }
 
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

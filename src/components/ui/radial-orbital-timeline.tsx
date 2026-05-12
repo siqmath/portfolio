@@ -5,7 +5,8 @@ import { ArrowRight, Link as LinkIcon, Zap, Briefcase, Cpu, Layout, Code, Rocket
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export type NodeKey = "product" | "engineering" | "design" | "code" | "pm" | "founder";
 
@@ -21,7 +22,7 @@ export const defaultTimelineData: TimelineItem[] = [
   {
     id: 1,
     key: "pm",
-    "icon": Calendar, 
+    icon: Calendar, 
     relatedIds: [2, 5, 6],
     energy: 95,
   },
@@ -30,14 +31,14 @@ export const defaultTimelineData: TimelineItem[] = [
     key: "engineering",
     icon: Cpu,
     relatedIds: [1, 4, 6], 
-    energy: 90,
+    energy: 85,
   },
   {
     id: 3,
     key: "design",
     icon: Layout,
     relatedIds: [4, 5],
-    energy: 80,
+    energy: 85,
   },
   {
     id: 4,
@@ -54,6 +55,33 @@ export const defaultTimelineData: TimelineItem[] = [
     energy: 95,
   },
 ];
+
+const SKILL_TO_PROJECTS: Record<NodeKey, { title: string, slug: string }[]> = {
+  product: [
+    { title: "Siqueira & Vale", slug: "siqueira-e-vale" },
+    { title: "Nova Habitar", slug: "nova-habitar" },
+    { title: "Honeymoon Challenge", slug: "honeymoon-challenge" },
+    { title: "Second Brain", slug: "second-brain" },
+  ],
+  code: [
+    { title: "Siqueira & Vale", slug: "siqueira-e-vale" },
+    { title: "Nova Habitar", slug: "nova-habitar" },
+    { title: "Honeymoon Challenge", slug: "honeymoon-challenge" },
+    { title: "Second Brain", slug: "second-brain" },
+  ],
+  design: [
+    { title: "Siqueira & Vale", slug: "siqueira-e-vale" },
+    { title: "Nova Habitar", slug: "nova-habitar" },
+    { title: "Second Brain", slug: "second-brain" },
+  ],
+  engineering: [
+    { title: "Nova Habitar", slug: "nova-habitar" },
+  ],
+  pm: [
+    { title: "Second Brain", slug: "second-brain" },
+  ],
+  founder: [] 
+};
 
 const founderNode: TimelineItem = {
   id: 6,
@@ -171,7 +199,9 @@ export function RadialOrbitalTimeline({
 
   useEffect(() => {
     let rotationTimer: NodeJS.Timeout;
-    if (autoRotate) {
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
+    
+    if (autoRotate && isDesktop) {
       rotationTimer = setInterval(() => {
         setRotationAngle((prev) => (prev + 0.15) % 360);
       }, 50);
@@ -218,7 +248,7 @@ export function RadialOrbitalTimeline({
 
   return (
     <div
-      className="w-full h-full flex flex-col items-center justify-center bg-transparent overflow-hidden"
+      className="w-full h-full flex flex-col items-center justify-center bg-transparent overflow-visible"
       ref={containerRef}
       onClick={handleContainerClick}
     >
@@ -248,19 +278,19 @@ export function RadialOrbitalTimeline({
                  <Button
                     variant="ghost"
                     size="icon"
-                    className="h-6 w-6 rounded-full hover:bg-muted/10 hover:text-muted -mr-2 -mt-2"
+                    className="h-6 w-6 rounded-full bg-white/10 hover:bg-white text-white hover:text-background transition-all -mr-2 -mt-2 border border-white/20"
                     onClick={(e) => { e.stopPropagation(); toggleItem(founderNode.id); }}
                  >
-                   <X size={14} />
+                   <X size={14} strokeWidth={3} />
                  </Button>
                </CardHeader>
-               <CardContent className="text-xs md:text-sm lg:text-base text-foreground/80 font-sans font-light pb-8">
+               <CardContent className="text-xs md:text-sm lg:text-base text-foreground/80 font-sans font-light pb-8 max-h-[450px] overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-muted/20 hover:[&::-webkit-scrollbar-thumb]:bg-muted/40 [&::-webkit-scrollbar-thumb]:rounded-full scroll-smooth">
                  <p className="leading-relaxed mb-6">{t("node_founder_content")}</p>
                  <div className="mt-8 pt-6 border-t border-foreground/10">
                    <div className="flex justify-between items-center text-[10px] md:text-xs uppercase font-mono tracking-widest mb-3 opacity-70">
                      <span className="flex items-center">
                        <Zap size={12} className="mr-2 text-muted" />
-                       Strategic Traction
+                       Skills
                      </span>
                      <span>100%</span>
                    </div>
@@ -315,30 +345,37 @@ export function RadialOrbitalTimeline({
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-6 w-6 rounded-full hover:bg-accent/10 hover:text-accent -mr-2 -mt-2"
+                        className="h-6 w-6 rounded-full bg-white/10 hover:bg-white text-white hover:text-background transition-all -mr-2 -mt-2 border border-white/20 shadow-lg"
                         onClick={(e) => { e.stopPropagation(); toggleItem(item.id); }}
                       >
-                        <X size={14} />
+                        <X size={14} strokeWidth={3} />
                       </Button>
                     </CardHeader>
-                    <CardContent className="text-xs md:text-sm text-foreground/80 font-sans font-light pb-6">
+                    <CardContent className="text-xs md:text-sm text-foreground/80 font-sans font-light pb-6 max-h-[380px] overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 hover:[&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full scroll-smooth">
                       <p className="leading-relaxed">{t(`node_${item.key}_content`)}</p>
                       <div className="mt-5 pt-4 border-t border-foreground/10">
                         <div className="flex justify-between items-center text-[10px] uppercase font-mono tracking-widest mb-2 opacity-70"><span className="flex items-center"><Zap size={10} className="mr-2 text-accent" />Skills</span><span>{item.energy}%</span></div>
                         <div className="w-full h-1 bg-foreground/10 rounded-full overflow-hidden text-accent"><div className="h-full bg-accent transition-all duration-1000 ease-out" style={{ width: `${item.energy}%` }}></div></div>
                       </div>
-                      {item.relatedIds.length > 0 && (
+                      {SKILL_TO_PROJECTS[item.key] && SKILL_TO_PROJECTS[item.key].length > 0 && (
                         <div className="mt-5 pt-4 border-t border-foreground/10">
-                          <div className="flex items-center mb-3"><LinkIcon size={10} className="text-foreground/50 mr-2" /><h4 className="text-[10px] uppercase tracking-widest font-mono text-foreground/50">Connections</h4></div>
-                          <div className="flex flex-wrap gap-2">
-                            {item.relatedIds.map((rid) => {
-                              const rItem = [...defaultTimelineData, founderNode].find(i => i.id === rid);
-                              return (
-                                <Button key={rid} variant="outline" size="sm" className="h-7 px-3 py-0 text-[10px] rounded-none border-foreground/20 bg-transparent hover:bg-accent/10 hover:text-accent hover:border-accent/40 transition-all font-mono uppercase" onClick={(e) => { e.stopPropagation(); toggleItem(rid); }}>
-                                  {rItem ? t(`node_${rItem.key}_title`) : ''} <ArrowRight size={8} className="ml-2" />
-                                </Button>
-                              );
-                            })}
+                          <div className="flex items-center mb-3">
+                            <LinkIcon size={10} className="text-foreground/50 mr-2" />
+                            <h4 className="text-[10px] uppercase tracking-widest font-mono text-foreground/50">
+                              {t("projects_label") || "Projetos"}
+                            </h4>
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            {SKILL_TO_PROJECTS[item.key].map((proj, pIdx) => (
+                              <Link 
+                                key={pIdx} 
+                                href={`/projects/${proj.slug}`}
+                                className="flex items-center justify-between w-full px-3 py-2 text-[10px] font-mono uppercase tracking-wider border border-white/10 bg-white/5 rounded-lg hover:bg-accent/10 hover:border-accent/40 transition-all text-foreground/80 hover:text-accent group/link"
+                              >
+                                <span>{proj.title}</span>
+                                <ArrowRight size={10} className="transition-transform group-hover/link:translate-x-1" />
+                              </Link>
+                            ))}
                           </div>
                         </div>
                       )}

@@ -35,11 +35,6 @@ function TimelineContent() {
   const searchParams = useSearchParams();
 
   const role = searchParams.get("role");
-  const highlightedItems: number[] =
-    role && role in ROLE_TO_HIGHLIGHTED
-      ? ROLE_TO_HIGHLIGHTED[role as keyof typeof ROLE_TO_HIGHLIGHTED]
-      : [];
-
   const timelineItems = [
     { key: "item0" }, // Nova Habitar
     { key: "item1" }, // Avolta
@@ -100,8 +95,6 @@ function TimelineContent() {
 
         <div className="flex flex-col gap-24 md:gap-40 relative">
           {timelineItems.map((item, index) => {
-            const isHighlighted = highlightedItems.includes(index);
-
             return (
               <div
                 key={index}
@@ -111,43 +104,25 @@ function TimelineContent() {
               >
                 {/* Center Dot */}
                 <div
-                  className={`hidden md:flex absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10 border-4 border-background ring-1 transition-all duration-500 ${
-                    isHighlighted
-                      ? "bg-[#E8724A] ring-[#E8724A]/40 scale-125"
-                      : "bg-accent ring-accent/20"
-                  }`}
+                  className="hidden md:flex absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10 border-4 border-background ring-1 transition-all duration-500 bg-accent ring-accent/20"
                 />
 
                 {/* Content Box */}
                 <div
-                  className={`pl-12 md:pl-0 md:w-[45%] flex flex-col gap-4 transition-all duration-500 ${
+                  className={`pl-12 md:pl-0 md:w-[45%] flex flex-col gap-4 transition-all duration-500 opacity-100 ${
                     index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"
-                  } ${isHighlighted ? "opacity-100" : highlightedItems.length > 0 ? "opacity-40" : "opacity-100"}`}
+                  }`}
                 >
                   {/* Year */}
-                  <div
-                    className={`font-mono font-bold text-sm tracking-widest uppercase transition-colors duration-500 ${
-                      isHighlighted ? "text-[#E8724A]" : "text-accent"
-                    }`}
-                  >
+                  <div className="font-mono font-bold text-sm tracking-widest uppercase transition-colors duration-500 text-accent">
                     {TIMELINE_YEARS[index]}
                   </div>
 
-                  <h3
-                    className={`font-display text-3xl md:text-4xl font-bold leading-tight transition-colors duration-500 ${
-                      isHighlighted ? "text-[#E8724A]" : "text-foreground"
-                    }`}
-                  >
+                  <h3 className="font-display text-3xl md:text-4xl font-bold leading-tight transition-colors duration-500 text-foreground">
                     {t(`${item.key}_role`)}
                   </h3>
 
-                  <div
-                    className={`tracking-[0.2em] text-xs font-mono uppercase px-3 py-1 rounded-sm inline-block self-start md:self-auto transition-all duration-500 ${
-                      isHighlighted
-                        ? "bg-[#E8724A]/10 text-[#E8724A]"
-                        : "bg-foreground/5 text-muted-foreground"
-                    }`}
-                  >
+                  <div className="tracking-[0.2em] text-xs font-mono uppercase px-3 py-1 rounded-sm inline-block self-start md:self-auto transition-all duration-500 bg-foreground/5 text-muted-foreground">
                     {t(`${item.key}_company`)}
                   </div>
 
@@ -158,11 +133,7 @@ function TimelineContent() {
                   {/* Decorative line */}
                   <div
                     className={`mt-6 w-full h-[2px] bg-gradient-to-r transition-all duration-500 ${
-                      isHighlighted
-                        ? index % 2 === 0
-                          ? "from-transparent to-[#E8724A]/40"
-                          : "from-[#E8724A]/40 to-transparent"
-                        : index % 2 === 0
+                      index % 2 === 0
                         ? "from-transparent to-accent/20"
                         : "from-accent/20 to-transparent"
                     }`}

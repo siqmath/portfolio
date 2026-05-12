@@ -14,18 +14,16 @@ const WHATSAPP_NUMBER = "353830693753";
 
 // Maps a role chip to the node key in the RadialOrbitalTimeline
 export const ROLE_TO_NODE: Record<Role, NodeKey> = {
-  pm: "pm",
+  pm: "product", // Maps directly to Product Strategy & Ops node as requested
   projectmanager: "pm",
   bizdev: "founder",
 };
 
 // Maps a role to highlighted timeline item indices
-// Index order after adding Nova Habitar:
-// 0 = Nova Habitar, 1 = Avolta, 2 = KQ, 3 = PROINFRA, 4 = UFJF, 5 = Bromberg, 6 = CEFET
 export const ROLE_TO_HIGHLIGHTED: Record<Role, number[]> = {
-  pm: [0, 1],           // Nova Habitar + Avolta
-  projectmanager: [1, 3], // Avolta + PROINFRA
-  bizdev: [0, 2],        // Nova Habitar + KQ
+  pm: [0, 1],
+  projectmanager: [1, 3],
+  bizdev: [0, 2],
 };
 
 function IntentSelectorInner() {
@@ -33,12 +31,15 @@ function IntentSelectorInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const intent = searchParams.get("intent") as Intent | null;
+  // Hardcode intent to 'hire' implicitly as we removed the selection row
+  const intent = "hire"; 
   const role = searchParams.get("role") as Role | null;
   const context = searchParams.get("context") as Context | null;
 
   function updateParams(key: string, value: string) {
     const params = new URLSearchParams(searchParams.toString());
+    // Also make sure intent=hire is kept in params implicitly so parsing downstream works
+    params.set("intent", "hire");
     if (params.get(key) === value) {
       params.delete(key);
     } else {
@@ -63,8 +64,8 @@ function IntentSelectorInner() {
     return t(key);
   }
 
-  const isComplete = !!(intent && role && context);
-  const waUrl = isComplete ? buildWhatsAppUrl(intent!, role!, context!) : "#";
+  const isComplete = !!(role && context);
+  const waUrl = isComplete ? buildWhatsAppUrl(intent, role!, context!) : "#";
 
   const chipBase =
     "px-4 py-2 rounded-full text-[10px] md:text-xs font-mono tracking-widest uppercase border transition-all duration-200 cursor-pointer select-none";
@@ -75,34 +76,15 @@ function IntentSelectorInner() {
 
   return (
     <div className="flex flex-col gap-7">
-      {/* Badge */}
-      <div className="border border-background/20 px-4 py-1 rounded-full text-[10px] md:text-xs font-mono font-bold tracking-widest uppercase text-background/60 self-start mb-1">
-        {t("badge")}
-      </div>
-
-      {/* Row 1: Intent */}
-      <div className="flex flex-col gap-3">
-        <span className="text-background/40 font-mono text-[10px] tracking-widest uppercase">
-          {t("row_1")}
-        </span>
-        <div className="flex flex-wrap gap-2">
-          {(["explore", "hire"] as Intent[]).map((val) => (
-            <button
-              key={val}
-              onClick={() => updateParams("intent", val)}
-              className={`${chipBase} ${intent === val ? chipActive : chipInactive}`}
-            >
-              {t(val)}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Row 2: Role */}
-      <div className="flex flex-col gap-3">
-        <span className="text-background/40 font-mono text-[10px] tracking-widest uppercase">
+      {/* Prominent Highlighted Headline */}
+      <div className="flex flex-col gap-2">
+        <h3 className="text-background text-2xl md:text-3xl font-display font-bold tracking-tight leading-tight max-w-md">
           {t("row_2")}
-        </span>
+        </h3>
+      </div>
+
+      {/* Row 2: Role Chips */}
+      <div className="flex flex-col gap-3 mt-1">
         <div className="flex flex-wrap gap-2">
           {(["pm", "projectmanager", "bizdev"] as Role[]).map((val) => (
             <button

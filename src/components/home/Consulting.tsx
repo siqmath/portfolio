@@ -83,7 +83,7 @@ export function Consulting() {
                 Consultoria voltada para a otimização agressiva de infraestrutura de negócio.
               </p>
               
-              <Link href="#contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-accent text-background text-xs font-bold font-mono uppercase tracking-widest transition-all hover:scale-[1.03] active:scale-95">
+              <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-accent text-background text-xs font-bold font-mono uppercase tracking-widest transition-all hover:scale-[1.03] active:scale-95">
                 Solicitar Diagnóstico
               </Link>
             </div>
