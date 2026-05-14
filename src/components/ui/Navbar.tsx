@@ -67,6 +67,7 @@ export function Navbar() {
         <Link href="#cv" className="text-foreground/60 hover:text-white transition-colors">{t("timeline")}</Link>
         <Link href="/projects" className="text-foreground/60 hover:text-white transition-colors">{t("artifacts")}</Link>
         <Link href="/blog" className="text-foreground/60 hover:text-white transition-colors">{t("blog")}</Link>
+        <Link href="/GEO" className="text-foreground/60 hover:text-white transition-colors">{t("geo")}</Link>
         <Link href="/contact" className="text-white transition-opacity hover:opacity-80">{t("contact")}</Link>
       </div>
 
