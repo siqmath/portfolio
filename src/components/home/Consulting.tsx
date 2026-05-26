@@ -14,13 +14,19 @@ export function Consulting() {
   const typeWriterRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)"
+    }, (context) => {
+      const { isDesktop } = context.conditions as { isDesktop: boolean };
       const typeText = "INITIATING_DIAGNOSIS...\n> SCRAPING_PROCESS_WASTE\n> MODELING_RESILIENT_STRUCTURES\n> LAUNCHING_IMPACT_VECTOR";
       
       gsap.to(typeWriterRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
+          start: isDesktop ? "top 70%" : "top 85%",
         },
         duration: 3,
         text: typeText,
@@ -33,9 +39,9 @@ export function Consulting() {
            }
         }
       });
-      
     }, containerRef);
-    return () => ctx.revert();
+
+    return () => mm.revert();
   }, []);
 
   return (

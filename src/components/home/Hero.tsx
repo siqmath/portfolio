@@ -21,27 +21,34 @@ export function Hero() {
   const subheadWords = t("subheadline").split(" ");
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add({
+      isDesktop: "(min-width: 768px)",
+      isMobile: "(max-width: 767px)"
+    }, (context) => {
+      const { isDesktop } = context.conditions as { isDesktop: boolean };
+
       // Stagger entry for left block
       gsap.fromTo(".hero-block", 
-        { x: -30, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+        { x: isDesktop ? -30 : 0, y: isDesktop ? 0 : 20, opacity: 0 },
+        { x: 0, y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
       );
 
       // Specific cascade for subheadline words
       gsap.fromTo(".sub-word", 
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.25, ease: "back.out(1.7)", delay: 0.8 }
+        { y: 15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power2.out", delay: 0.6 }
       );
 
-      // Checklist stagger from the right - FORCED explicit end state 
+      // Checklist stagger from the right
       gsap.fromTo(".hero-check", 
-        { x: 40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out", delay: 1.2, clearProps: "all" }
+        { x: isDesktop ? 40 : 0, y: isDesktop ? 0 : 20, opacity: 0 },
+        { x: 0, y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out", delay: 1.0, clearProps: "all" }
       );
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (

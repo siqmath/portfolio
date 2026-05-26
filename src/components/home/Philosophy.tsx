@@ -63,7 +63,19 @@ export function Philosophy() {
   const [hoveredPrisma, setHoveredPrisma] = useState<string | null>(null);
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth < 768);
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -391,53 +403,55 @@ export function Philosophy() {
                        </div>
                     </motion.div>
 
-                    {/* Orbiting Sub-Nodes - GUARANTEED IMMUTABLE POSITIONING WRAPPER */}
                     {[
                       { angle: -30, label: view === "ANTIFRAGILITY" ? t("pillar_1_sub_1") : t("pillar_2_sub_1"), icon: Zap },
                       { angle: 90, label: view === "ANTIFRAGILITY" ? t("pillar_1_sub_2") : t("pillar_2_sub_2"), icon: Layers },
                       { angle: 210, label: view === "ANTIFRAGILITY" ? t("pillar_1_sub_3") : t("pillar_2_sub_3"), icon: Target },
-                    ].map((node, idx) => (
-                      <div
-                        key={idx}
-                        className="absolute left-1/2 top-1/2 pointer-events-none flex items-center justify-center"
-                        style={{
-                          transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateY(-145px)`,
-                        }}
-                      >
-                        <motion.div
-                          initial={{ scale: 0, opacity: 0, rotate: -node.angle }}
-                          animate={{ 
-                            scale: hoveredNode === idx ? 1.15 : 1, 
-                            opacity: 1, 
-                            rotate: -node.angle 
+                    ].map((node, idx) => {
+                      const translateDistance = isMobile ? -105 : -145;
+                      return (
+                        <div
+                          key={idx}
+                          className="absolute left-1/2 top-1/2 pointer-events-none flex items-center justify-center"
+                          style={{
+                            transform: `translate(-50%, -50%) rotate(${node.angle}deg) translateY(${translateDistance}px)`,
                           }}
-                          transition={{ delay: 0.2 + idx * 0.1, type: "spring", duration: 0.3 }}
-                          className="flex flex-col items-center gap-2 pointer-events-auto"
-                          onMouseEnter={() => setHoveredNode(idx)}
-                          onMouseLeave={() => setHoveredNode(null)}
-                          onClick={(e) => e.stopPropagation()}
                         >
-                          <div className={`w-10 h-10 bg-background border ${hoveredNode === idx ? 'border-accent shadow-[0_0_15px_rgba(224,122,58,0.4)] scale-110' : 'border-accent/50'} transition-all duration-300 flex items-center justify-center group cursor-default`}>
-                            <node.icon className={`w-5 h-5 text-accent transition-transform duration-300 ${hoveredNode === idx ? 'scale-110' : ''}`} />
-                          </div>
-                          <span className={`text-[10px] font-bold px-2 py-1 tracking-wider whitespace-nowrap border backdrop-blur-md transition-colors duration-300 ${hoveredNode === idx ? 'text-accent border-accent bg-background' : 'text-foreground bg-background/80 border-foreground/10'}`}>
-                            {node.label}
-                          </span>
-                        </motion.div>
-                      </div>
-                    ))}
+                          <motion.div
+                            initial={{ scale: 0, opacity: 0, rotate: -node.angle }}
+                            animate={{ 
+                              scale: hoveredNode === idx ? 1.15 : 1, 
+                              opacity: 1, 
+                              rotate: -node.angle 
+                            }}
+                            transition={{ delay: 0.2 + idx * 0.1, type: "spring", duration: 0.3 }}
+                            className="flex flex-col items-center gap-2 pointer-events-auto"
+                            onMouseEnter={() => setHoveredNode(idx)}
+                            onMouseLeave={() => setHoveredNode(null)}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <div className={`w-10 h-10 bg-background border ${hoveredNode === idx ? 'border-accent shadow-[0_0_15px_rgba(224,122,58,0.4)] scale-110' : 'border-accent/50'} transition-all duration-300 flex items-center justify-center group cursor-default`}>
+                              <node.icon className={`w-5 h-5 text-accent transition-transform duration-300 ${hoveredNode === idx ? 'scale-110' : ''}`} />
+                            </div>
+                            <span className={`text-[10px] font-bold px-2 py-1 tracking-wider whitespace-nowrap border backdrop-blur-md transition-colors duration-300 ${hoveredNode === idx ? 'text-accent border-accent bg-background' : 'text-foreground bg-background/80 border-foreground/10'}`}>
+                              {node.label}
+                            </span>
+                          </motion.div>
+                        </div>
+                      );
+                    })}
 
                     {/* Dynamic SVG Connections - Fixed and Synced for all nodes */}
                     <svg className="absolute inset-0 w-full h-full pointer-events-none -z-0">
                        {[-30, 90, 210].map((deg, i) => (
-                         <line 
-                           key={i} 
-                           x1="50%" y1="50%" x2="50%" y2="15%" 
-                           stroke="var(--color-accent)" 
-                           strokeOpacity="0.15" 
-                           strokeDasharray="3 3" 
-                           style={{ transformOrigin: '50% 50%', transform: `rotate(${deg}deg)` }}
-                         />
+                          <line 
+                            key={i} 
+                            x1="50%" y1="50%" x2="50%" y2={isMobile ? "22%" : "15%"} 
+                            stroke="var(--color-accent)" 
+                            strokeOpacity="0.15" 
+                            strokeDasharray="3 3" 
+                            style={{ transformOrigin: '50% 50%', transform: `rotate(${deg}deg)` }}
+                          />
                        ))}
                     </svg>
 

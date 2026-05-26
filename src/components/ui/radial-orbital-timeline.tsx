@@ -222,7 +222,18 @@ export function RadialOrbitalTimeline({
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 140 : 220;
+    
+    let radius = 220;
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 360) {
+        radius = 110;
+      } else if (window.innerWidth < 450) {
+        radius = 130;
+      } else if (window.innerWidth < 768) {
+        radius = 150;
+      }
+    }
+
     const radian = (angle * Math.PI) / 180;
     const x = radius * Math.cos(radian);
     const y = radius * Math.sin(radian);
@@ -269,7 +280,7 @@ export function RadialOrbitalTimeline({
             </div>
 
             {expandedItems[founderNode.id] && (
-               <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 md:w-80 lg:w-[500px] bg-background/95 backdrop-blur-xl border-muted/40 shadow-2xl shadow-black/50 overflow-visible z-50">
+               <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[88vw] sm:w-80 lg:w-[500px] bg-background/95 backdrop-blur-xl border-muted/40 shadow-2xl shadow-black/50 overflow-visible z-50">
                <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-px h-4 bg-muted/50"></div>
                <CardHeader className="pb-3 pt-6 flex flex-row items-center justify-between">
                  <CardTitle className="text-base md:text-xl font-display font-bold text-muted uppercase tracking-widest leading-tight">
@@ -318,7 +329,7 @@ export function RadialOrbitalTimeline({
               <div
                 key={item.id}
                 ref={(el) => { nodeRefs.current[item.id] = el; }}
-                className="absolute transition-all duration-700 cursor-pointer"
+                className="absolute transition-all duration-700 cursor-pointer p-2 -m-2 select-none touch-manipulation"
                 style={{ transform: `translate(${position.x}px, ${position.y}px)`, zIndex: isExpanded ? 200 : position.zIndex, opacity: isExpanded ? 1 : position.opacity }}
                 onClick={(e) => { e.stopPropagation(); toggleItem(item.id); }}
                 onMouseEnter={() => handleNodeMouseEnter(item.id)}
@@ -338,7 +349,7 @@ export function RadialOrbitalTimeline({
                 </div>
 
                 {isExpanded && (
-                  <Card className="absolute top-24 left-1/2 -translate-x-1/2 w-72 md:w-80 bg-background/95 backdrop-blur-xl border-accent/30 shadow-2xl shadow-black/50 overflow-visible z-50">
+                  <Card className="absolute top-24 left-1/2 -translate-x-1/2 w-[88vw] sm:w-80 bg-background/95 backdrop-blur-xl border-accent/30 shadow-2xl shadow-black/50 overflow-visible z-50">
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-px h-4 bg-accent/50"></div>
                     <CardHeader className="pb-3 pt-6 flex flex-row items-center justify-between">
                       <CardTitle className="text-sm md:text-base font-display font-bold text-accent uppercase tracking-wider">{t(`node_${item.key}_title`)}</CardTitle>
