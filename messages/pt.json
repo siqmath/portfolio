@@ -207,7 +207,13 @@
     "ul_2_title": "Benchmarking de SaaS",
     "ul_2_desc": "Pesquisa de melhores práticas do mercado de SAAS para o nicho. Não encontramos um capaz de trabalhar bem a priorização (principal fragilidade), o que validou construirmos um próprio.",
     "ul_3_title": "Feedback de Linha de Frente",
-    "ul_3_desc": "Teste direto com o time em produção e feedbacks rápidos para melhora contínua, gerando uma solução hiper-especializada para o cliente final."
+    "ul_3_desc": "Teste direto com o time em produção e feedbacks rápidos para melhora contínua, gerando uma solução hiper-especializada para o cliente final.",
+    "quote": "\"Matheus trouxe uma clareza extrema para o processo do escritório. Com certeza um divisor de águas na qualidade do nosso trabalho e principalmente na qualidade de vida dos gestores\"",
+    "expanded_mindset": "Mentalidade Expandida",
+    "phase1_title": "Fase 1: SaaS Concluído",
+    "phase2_title": "Fase 2: Integração Agente IA com RAG próprio · Em andamento",
+    "footer_title": "Infraestrutura blindada para a escalabilidade.",
+    "footer_desc": "A arquitetura de dados implementada eliminou ruído para que as pessoas possam investir o tempo em decisões intelectuais de alto valor."
   },
   "ProjectCaseNH": {
     "back": "Voltar para Portfólio",
@@ -391,5 +397,13 @@
     "footer_title": "Pare de perder leads qualificados.",
     "footer_desc": "Seus rivais já estão sendo recomendados pelas inteligências artificiais. Vamos reverter isso.",
     "wa_message": "Olá Matheus! Vi o GEO no seu portfólio e gostaria de entender como o meu negócio pode aparecer nas respostas da IA."
+  },
+  "Consulting": {
+    "title": "Consultoria Operacional",
+    "prisma_diagnosis": "PRISMA Diagnosis",
+    "telemetry_feed": "Telemetry Feed",
+    "desc": "Análise fria e vetorização de processos. Refração da complexidade corporativa em componentes modulares e auditáveis, eliminando dependência operacional humana desnecessária.",
+    "sub_desc": "Consultoria voltada para a otimização agressiva de infraestrutura de negócio.",
+    "cta": "Solicitar Diagnóstico"
   }
 }

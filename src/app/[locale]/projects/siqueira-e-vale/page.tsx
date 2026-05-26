@@ -96,7 +96,7 @@ export default function SiqueiraValeCase() {
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-accent/10 blur-2xl rounded-full -mt-16 pointer-events-none" />
           <p className="text-lg md:text-xl font-display italic text-foreground/90 leading-relaxed mb-4 relative z-10">
-            "Matheus trouxe uma clareza extrema para o processo do escritório. Com certeza um divisor de águas na qualidade do nosso trabalho e principalmente na qualidade de vida dos gestores"
+            {t("quote")}
           </p>
           <div className="flex items-center justify-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
             <div className="h-[1px] w-4 bg-accent/40" />
@@ -278,7 +278,7 @@ export default function SiqueiraValeCase() {
       <section className="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
         <div className="mb-12 border-l-4 border-accent pl-6 relative">
           <div className="text-[10px] font-mono font-bold text-accent uppercase tracking-[0.3em] mb-3 bg-accent/10 px-2 py-1 rounded-sm inline-block">
-            Mentalidade Expandida
+            {t("expanded_mindset")}
           </div>
           <h2 className="text-3xl font-black tracking-tight uppercase mb-2">
             {t("ultralearning_title")}
@@ -319,15 +319,15 @@ export default function SiqueiraValeCase() {
          <div className="flex flex-col items-center gap-4 mb-8">
            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent/10 border border-accent/30 text-accent font-bold text-xs uppercase tracking-widest rounded-full">
              <CheckCircle2 className="w-3.5 h-3.5" />
-             Fase 1: SaaS Concluído
+             {t("phase1_title")}
            </div>
            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 text-foreground/60 font-bold text-xs uppercase tracking-widest rounded-full border-dashed animate-pulse">
              <Activity className="w-3.5 h-3.5" />
-             Fase 2: Integração Agente IA com RAG próprio · Em andamento
+             {t("phase2_title")}
            </div>
          </div>
-         <h3 className="text-2xl font-display font-bold mb-4 tracking-tight">Infraestrutura blindada para a escalabilidade.</h3>
-         <p className="text-muted text-sm max-w-2xl mx-auto">A arquitetura de dados implementada eliminou ruído para que as pessoas possam investir o tempo em decisões intelectuais de alto valor.</p>
+         <h3 className="text-2xl font-display font-bold mb-4 tracking-tight">{t("footer_title")}</h3>
+         <p className="text-muted text-sm max-w-2xl mx-auto">{t("footer_desc")}</p>
       </section>
 
     </main>

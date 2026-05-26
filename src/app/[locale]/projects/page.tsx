@@ -26,7 +26,7 @@ export default async function ProjectsListPage(props: { params: Promise<{ locale
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/30">Transform.</span>
           </h1>
           <p className="text-muted max-w-xl mt-6 text-base md:text-lg leading-relaxed font-medium">
-            {t("desc_intro") || "Exploração técnica de arquiteturas resolvendo problemas reais. Clique para mergulhar no framework e documentação de cada entrega."}
+            {t("desc_intro") || "Technical exploration of architectures solving real problems. Click to dive into the framework and documentation of each delivery."}
           </p>
         </header>
 

@@ -4,10 +4,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Consulting() {
+  const t = useTranslations("Consulting");
   const containerRef = useRef<HTMLElement>(null);
   const typeWriterRef = useRef<HTMLDivElement>(null);
   
@@ -44,7 +46,7 @@ export function Consulting() {
         </div>
         
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 uppercase tracking-tighter text-foreground border-b border-muted/20 pb-8">
-          Consultoria Operacional
+          {t("title")}
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -54,7 +56,7 @@ export function Consulting() {
              
              <h3 className="font-mono font-black text-lg mb-8 text-foreground tracking-widest uppercase border-b border-foreground/10 pb-4 flex items-center gap-3">
                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-               PRISMA Diagnosis
+               {t("prisma_diagnosis")}
              </h3>
              
              <div className="flex gap-2 mb-8 flex-wrap">
@@ -65,13 +67,13 @@ export function Consulting() {
                 ))}
              </div>
              <p className="text-base text-muted/80 font-sans leading-relaxed mt-auto">
-               Análise fria e vetorização de processos. Refração da complexidade corporativa em componentes modulares e auditáveis, eliminando dependência operacional humana desnecessária.
+               {t("desc")}
              </p>
           </div>
 
           {/* Right Card: The Engine */}
           <div className="bg-foreground/5 border border-muted/20 rounded-3xl p-10 shadow-2xl relative overflow-hidden group flex flex-col h-full">
-            <h3 className="font-mono font-bold text-xs mb-8 text-muted tracking-[0.2em] uppercase">Telemetry Feed</h3>
+            <h3 className="font-mono font-bold text-xs mb-8 text-muted tracking-[0.2em] uppercase">{t("telemetry_feed")}</h3>
             
             <div 
               ref={typeWriterRef}
@@ -80,11 +82,11 @@ export function Consulting() {
             
             <div className="mt-auto flex flex-col items-start">
               <p className="text-sm text-muted/70 mb-6">
-                Consultoria voltada para a otimização agressiva de infraestrutura de negócio.
+                {t("sub_desc")}
               </p>
               
               <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-accent text-background text-xs font-bold font-mono uppercase tracking-widest transition-all hover:scale-[1.03] active:scale-95">
-                Solicitar Diagnóstico
+                {t("cta")}
               </Link>
             </div>
           </div>

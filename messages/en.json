@@ -207,7 +207,13 @@
     "ul_2_title": "Niche SaaS Best Practices Research",
     "ul_2_desc": "Exhaustive market survey concluding that zero off-the-shelf solutions handled strict prioritization natively (the core structural fragility), validating the custom build.",
     "ul_3_title": "Direct Team Live Testing",
-    "ul_3_desc": "High-velocity iterations with zero-latency feedback loops, converting direct employee input into hyper-specialized specialized code deliverables."
+    "ul_3_desc": "High-velocity iterations with zero-latency feedback loops, converting direct employee input into hyper-specialized specialized code deliverables.",
+    "quote": "\"Matheus brought extreme clarity to our firm's processes. Truly a turning point in the quality of our work and, above all, in the quality of life for our managers.\"",
+    "expanded_mindset": "Expanded Mindset",
+    "phase1_title": "Phase 1: SaaS Completed",
+    "phase2_title": "Phase 2: Custom RAG AI Agent Integration · In Progress",
+    "footer_title": "Bulletproof infrastructure for scalability.",
+    "footer_desc": "The implemented data architecture eliminated noise so that people can invest their time in high-value intellectual decisions."
   },
   "ProjectCaseNH": {
     "back": "Back to Portfolio",
@@ -391,5 +397,13 @@
     "footer_title": "Stop hemorrhaging qualified leads.",
     "footer_desc": "Your rivals are already recommended by AI concierges. Let's flip the board.",
     "wa_message": "Hello Matheus! I saw GEO on your portfolio and I'd like to understand how my business can show up in AI search answers."
+  },
+  "Consulting": {
+    "title": "Operational Consulting",
+    "prisma_diagnosis": "PRISMA Diagnosis",
+    "telemetry_feed": "Telemetry Feed",
+    "desc": "Cold analysis and process vectorization. Refracting corporate complexity into modular, auditable components, eliminating unnecessary human operational dependence.",
+    "sub_desc": "Consulting focused on aggressive optimization of business infrastructure.",
+    "cta": "Request Diagnosis"
   }
 }
