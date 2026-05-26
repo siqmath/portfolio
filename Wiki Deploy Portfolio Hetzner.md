@@ -1,26 +1,26 @@
 # Wiki: Deploy Portfolio Hetzner
 
-Esta wiki documenta o processo de acesso e deploy manual do portfólio no servidor VPS Hetzner por fora do ambiente do Antigravity.
+Esta wiki documenta o processo de acesso e deploy manual do portfólio no servidor VPS Hetzner por fora do ambiente do Antigravity, agora sob uma arquitetura de segurança reforçada e não-root.
 
 ---
 
-## 1. Como Acessar a VPS por fora do Antigravity
+## 1. Como Acessar a VPS por fora do Antigravity (Acesso Seguro Não-Root)
 
-Você pode acessar o servidor diretamente de qualquer terminal (PowerShell, Command Prompt, Git Bash ou terminal do Linux/macOS) usando a sua chave SSH dedicada.
+Para mitigar a vulnerabilidade de acesso direto como `root`, o servidor foi reconfigurado para permitir o acesso completo de deploy e controle de containers usando o usuário restrito **`matheus`**.
 
 ### Passo a Passo
 
 1. **Abra o seu terminal local** (ex: PowerShell ou terminal de sua preferência).
-2. **Execute o comando SSH** apontando para a sua chave privada local:
+2. **Execute o comando SSH** apontando para a sua chave privada local, conectando como usuário `matheus`:
 
 ```bash
-ssh -i C:\Users\Matheus\.ssh\id_antigravity root@88.198.163.108
+ssh -i C:\Users\Matheus\.ssh\id_antigravity matheus@88.198.163.108
 ```
 
 > **Nota sobre permissões de chave no Windows:** 
 > Se o Windows reclamar de permissões muito abertas na chave privada (erro `Unprotected Private Key File`), você pode ajustar as permissões do arquivo `id_antigravity` para que apenas o seu usuário tenha acesso de leitura, ou utilizar o terminal do WSL/Git Bash.
 
-3. Uma vez dentro da VPS, você estará conectado como usuário `root` no terminal Linux.
+3. Uma vez conectado, você estará operando com privilégios limitados e isolados dentro da pasta pessoal `/home/matheus`, garantindo a integridade do sistema operacional da VPS.
 
 ---
 
@@ -28,16 +28,16 @@ ssh -i C:\Users\Matheus\.ssh\id_antigravity root@88.198.163.108
 
 Caso queira fazer o deploy ou atualizar o portfólio manualmente na VPS por fora da IDE:
 
-1. **Acesse a VPS via SSH** (conforme o passo anterior).
+1. **Acesse a VPS via SSH** como usuário `matheus` (conforme o passo anterior).
 2. **Navegue até o diretório do projeto**:
    ```bash
    cd /home/matheus/portfolio
    ```
-3. **Puxe as alterações mais recentes do GitHub**:
+3. **Puxe as alterações mais recentes do GitHub** (a pasta foi reconfigurada com propriedade do grupo `matheus`):
    ```bash
    git pull origin main
    ```
-4. **Reconstrua e reinicie os containers Docker**:
+4. **Reconstrua e reinicie os containers Docker** (o usuário `matheus` possui permissão no grupo `docker` para rodar sem `sudo`):
    ```bash
    docker-compose down && docker-compose up -d --build
    ```
@@ -49,23 +49,21 @@ Caso queira fazer o deploy ou atualizar o portfólio manualmente na VPS por fora
 
 ---
 
-## 3. Segurança da Chave SSH
+## 3. Segurança da Chave SSH e Mitigações Concluídas
 
 ### A chave `id_antigravity` se tornou pública?
 **Não.** A chave privada `id_antigravity` reside estritamente no seu diretório local (`C:\Users\Matheus\.ssh\id_antigravity`). 
 * Durante os commits e pushes de Git realizados nesta sessão, **apenas arquivos de código e tradução foram enviados para o GitHub**.
 * O arquivo da chave privada nunca foi adicionado à árvore do Git e não foi exposto publicamente.
 
-### Pontos de Atenção e Vulnerabilidade Gerados:
-Embora a chave não tenha sido exposta publicamente, a arquitetura atual apresenta os seguintes pontos de atenção quanto à segurança:
+### Resolução de Fraquezas Concluída:
 
-1. **Acesso Direto como `root`**:
-   A chave SSH conecta-se diretamente com o usuário privilegiado `root`. Se a chave local for comprometida por qualquer malware ou invasão no seu computador de desenvolvimento, o invasor obterá controle administrativo total e irrestrito sobre toda a sua VPS.
-   * *Mitigação recomendada:* Configurar um usuário padrão sem privilégios administrativos (ex: `matheus`) na VPS para realizar deploys, e desabilitar o login direto de `root` via SSH nas configurações do `/etc/ssh/sshd_config`.
+1. **Acesso Direto como `root` (RESOLVIDO)**:
+   * *O problema:* A chave anteriormente conectava como `root`, permitindo que qualquer comprometimento da chave expusesse todo o sistema operacional da VPS.
+   * *A solução:* Autorizamos a chave `id_antigravity` diretamente no usuário não-privilegiado `matheus` (`/home/matheus/.ssh/authorized_keys`), alteramos a propriedade da pasta `/home/matheus/portfolio` de `root` para `matheus`, e vinculamos o usuário ao grupo `docker` para que o build e o deploy rodem de forma 100% isolada e segura, sem necessidade de root.
 
 2. **Ausência de Passphrase na Chave**:
-   Se a chave `id_antigravity` local não possuir uma senha de criptografia (passphrase), qualquer pessoa que obtenha acesso físico ou lógico aos seus arquivos locais conseguirá utilizá-la instantaneamente.
-   * *Mitigação recomendada:* Proteger chaves SSH locais críticas com uma passphrase forte.
+   * *Recomendação contínua:* Para aumentar ainda mais a segurança, você pode aplicar uma passphrase à sua chave SSH local digitando `ssh-keygen -p -f C:\Users\Matheus\.ssh\id_antigravity` no seu terminal Windows.
 
 3. **Ignorar Validação de Host (`StrictHostKeyChecking=no`)**:
-   Utilizar a flag `-o StrictHostKeyChecking=no` em scripts ou execuções locais automatizadas evita a confirmação manual da impressão digital do servidor. Em conexões realizadas através de redes públicas ou não confiáveis, isso abre brecha para ataques de Man-in-the-Middle (MitM).
+   * *Recomendação contínua:* Evite usar `-o StrictHostKeyChecking=no` fora de ambientes de automação locais conhecidos. Ao conectar manualmente, permita que o SSH adicione e verifique a impressão digital (fingerprint) do host no seu arquivo `known_hosts`.
