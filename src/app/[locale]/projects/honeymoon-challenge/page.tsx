@@ -27,10 +27,10 @@ export default function HoneymoonChallengePage() {
   const locale = useLocale();
 
   const metrics = [
-    { label: "Contrato Social", value: "1 Real = 1 Ponto", icon: Trophy },
-    { label: "ROI sobre Teto", value: "400%", icon: Rocket },
-    { label: "Metodologia", value: "Vibe Coding", icon: Zap },
-    { label: "Mindset", value: "Build to Learn", icon: Terminal },
+    { label: t("metric1_label"), value: t("metric1_value"), icon: Trophy },
+    { label: t("metric2_label"), value: t("metric2_value"), icon: Rocket },
+    { label: t("metric3_label"), value: t("metric3_value"), icon: Zap },
+    { label: t("metric4_label"), value: t("metric4_value"), icon: Terminal },
   ];
 
   const prismaSteps = [

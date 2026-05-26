@@ -330,7 +330,15 @@
     "p4_title": "Poder da Escuta (Taís)",
     "p4_desc": "Reforço da lição corporativa mais importante: pare de polir excessivamente o produto. A decisão da esposa de lançar 'como estava' validou o MVP perfeitamente.",
     "p5_title": "Insight de Execução",
-    "p5_desc": "Conclusão máxima baseada em Ultralearning: Ter algo imperfeito mas funcionando é infinitamente melhor do que a ideia perfeita trancada na gaveta."
+    "p5_desc": "Conclusão máxima baseada em Ultralearning: Ter algo imperfeito mas funcionando é infinitamente melhor do que a ideia perfeita trancada na gaveta.",
+    "metric1_label": "Contrato Social",
+    "metric1_value": "1 Real = 1 Ponto",
+    "metric2_label": "ROI sobre Teto",
+    "metric2_value": "400%",
+    "metric3_label": "Metodologia",
+    "metric3_value": "Vibe Coding",
+    "metric4_label": "Mindset",
+    "metric4_value": "Build to Learn"
   },
   "ContactPage": {
     "title": "Conectar",

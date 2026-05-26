@@ -330,7 +330,15 @@
     "p4_title": "Listening Command (Taís)",
     "p4_desc": "Reinforced the supreme corporate directive: stop over-polishing the asset. My wife's order to ship it 'as-is' precisely validated the viable MVP.",
     "p5_title": "Execution Insight",
-    "p5_desc": "Ultralearning ultimate takeaway: having something imperfect currently functioning crushes the illusion of the perfect idea stuck in a drawer."
+    "p5_desc": "Ultralearning ultimate takeaway: having something imperfect currently functioning crushes the illusion of the perfect idea stuck in a drawer.",
+    "metric1_label": "Social Contract",
+    "metric1_value": "$1 Contributed = 1 Point",
+    "metric2_label": "ROI on Ceiling",
+    "metric2_value": "400%",
+    "metric3_label": "Methodology",
+    "metric3_value": "Vibe Coding",
+    "metric4_label": "Mindset",
+    "metric4_value": "Build to Learn"
   },
   "ContactPage": {
     "title": "Connect",
